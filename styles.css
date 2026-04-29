@@ -15,8 +15,19 @@ body {
     text-align: center;
     width: 100%;
 }
+
+#toolgrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 1000px;
+    gap: 20px;
+}
+
 .tool {
-    margin: 20px;
+    margin: 0;
     padding: 4px;   
     border: 2px solid aqua;
     border-radius: 5px; 
@@ -28,7 +39,9 @@ body {
     padding-left: 10px;
 }
 .tooltitle {
-    margin: 15px;
+    display: flex;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 #playerName {
   padding: 10px;
@@ -39,4 +52,25 @@ body {
   transition: border-color 0.3s, box-shadow 0.3s;
   background-color: rgb(7, 1, 36);
   color: white;
+}
+
+#status {
+    text-align: center;
+    font-size: 15px;
+    padding: 0;
+    color: rgb(112, 112, 112);
+}
+
+#matchHistory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.match {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

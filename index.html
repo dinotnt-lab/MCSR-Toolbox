@@ -26,21 +26,30 @@
                         ">
                 </button>
             </div>
+            <p id='status'>-</p>
         </div>
         <div id="toolgrid">
-            <div class="tool">
-                <h2 class="tooltitle playerstats">Player stats</h2>
-                <div id="info">
+            <div class="tool" style="width: 160px;">
+                <div class="tooltitle">
+                    <h2>Player info</h2>
+                </div>
+                <div id="playerStats">
                     <p id="rank">Elo: </p>
                     <p id="peak">Peak Elo: </p>
                     <p id="pb">PB: </p>
                     <p id="avg">Average: </p>
-                    <p id="winrate">Win Rate: </p>
+                    <p id="wdl">W/D/L: </p>
+                    <p id="winrate">Winrate: </p>
                     <p id="ffrate">FF Rate: </p>
                 </div>
             </div>
             <div class="tool">
-                <h2 class="tooltitle">Player compare</h2>
+                <div class="tooltitle">
+                    <h2>Match history</h2>
+                </div>
+                <div id="matchHistory">
+                    <p>- | - | -</p>
+                </div>
             </div>
         </div>
     </body>

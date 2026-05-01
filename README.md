@@ -1,6 +1,7 @@
 # MCSR-Toolbox
 
 - [X] Player stats
+- [ ] Match lookup
 - [ ] Compare player to player
 - [ ] Compare player to average (world or rank)
 - [ ] Splits stats (whole run and ov/bas)

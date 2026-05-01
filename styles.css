@@ -74,3 +74,51 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
+#seasonInput {
+    padding: 10px;
+    border: 2px solid aqua;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    background-color: rgb(7, 1, 36);
+    color: white;
+    width: 30px;
+}
+
+#matchHistory {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#matchTable {
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+#matchTable th,
+#matchTable td {
+    padding: 8px 6px;
+}
+
+#matchTable th {
+    background-color: rgb(10, 10, 60);
+}
+
+#matchTable tbody tr:nth-child(even) {
+    background-color: rgb(10, 10, 35);
+}
+
+#toggleTimeFormat {
+    padding: 10px;
+    border: 2px solid aqua;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    background-color: rgb(7, 1, 36);
+    color: white;
+    margin-bottom: 10px;
+}

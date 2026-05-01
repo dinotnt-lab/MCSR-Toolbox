@@ -7,8 +7,19 @@
         <script src="app.js" defer></script>
     </head>
     <body>
+        <div id="settings">
+            <button id="toggleTimeFormat" onclick="toggleTimeFormat()">Short time format</button>
+            <div id='seasonselector'>
+                <label for="seasonInput">Season:</label>
+                <input type="number" id="seasonInput" placeholder="Season number..." min="1" max="100" />
+            </div>
+            <div id="autoentername">
+                <label for="autoEnterNameCheckbox">Enter player name on load</label>
+                <input type="text" id="autoEnterNameCheckbox" />
+            </div>
+        </div>
         <div id="title">
-            <h1>MCSR Ranked Toolbox</h1>
+            <h1 style="margin-top: 20px; margin-bottom: 30px;">MCSR Ranked Toolbox</h1>
             <div>
                 <input type="text" id="playerName" placeholder="Enter player name..." />
                 <button id="goButton"
@@ -29,7 +40,7 @@
             <p id='status'>-</p>
         </div>
         <div id="toolgrid">
-            <div class="tool" style="width: 160px;">
+            <div class="tool" style="width: 170px;">
                 <div class="tooltitle">
                     <h2>Player info</h2>
                 </div>
@@ -38,6 +49,8 @@
                     <p id="peak">Peak Elo: </p>
                     <p id="pb">PB: </p>
                     <p id="avg">Average: </p>
+                    <p id="lstq">Last Q: </p>
+                    <p id="lston">Last Online: </p>
                     <p id="wdl">W/D/L: </p>
                     <p id="winrate">Winrate: </p>
                     <p id="ffrate">FF Rate: </p>
@@ -48,7 +61,24 @@
                     <h2>Match history</h2>
                 </div>
                 <div id="matchHistory">
-                    <p>- | - | -</p>
+                    <table id="matchTable">
+                        <tbody>
+                            <tr><td>-</td><td>-</td><td>-</td></tr>
+                            <tr><td>-</td><td>-</td><td>-</td></tr>
+                            <tr><td>-</td><td>-</td><td>-</td></tr>
+                            <tr><td>-</td><td>-</td><td>-</td></tr>
+                            <tr><td>-</td><td>-</td><td>-</td></tr>
+                            <tr><td>-</td><td>-</td><td>-</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tool">
+                <div class="tooltitle">
+                    <h2>Elo Graph</h2>
+                </div>
+                <div id="eloGraph">
+                    <canvas id="eloCanvas" width="400" height="300"></canvas>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import requests, json
 
-user = 'doogile'
+user = 'blazemind'
 
 uuid = requests.get(f'https://mc-api.io/uuid/{user}').json()['uuid'].replace('-', '')
 
@@ -22,24 +22,11 @@ while True:
         if y > i['id']:
             y = i['id']
 
-matches = []
-
-for i in range(len(usermatches)):
-    if usermatches[i]['decayed']:
-        continue
-    time = usermatches[i]['result']['time']
-    time = f"{time//60000}:{(time%60000)//1000:02d}.{time%1000:03d}"
-    state = 'Loss'
-    elochange = -1
-    for l in usermatches[i]['changes']:
+for i in usermatches:
+    for l in i['changes']:
         if l['uuid'] == uuid:
             elochange = l['change']
-    if elochange == 0:
-        state = 'Draw'
-    if usermatches[i]['result']['uuid'] == uuid:
-        state = 'Win'
-        
-    print(f" {time} | {state} | {elochange}")
-    if i == 6:
-        break
 
+    print(elochange)
+    if i == 30:
+        break

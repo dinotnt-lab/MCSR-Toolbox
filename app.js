@@ -1,4 +1,4 @@
-var longtime = true;
+var longtime = false;
 
 async function getcurrentseason() {
     const currentseasonresp = await fetch('https://api.mcsrranked.com/leaderboard');
@@ -74,7 +74,7 @@ function setMatchTable(matches) {
 async function toggleTimeFormat() {
     longtime = !longtime;
     const button = document.getElementById("toggleTimeFormat");
-    button.textContent = longtime ? "Short time format" : "Long time format";
+    button.textContent = longtime ? "Long" : "Short";
     go();
 }
 
@@ -410,3 +410,46 @@ function drawEloGraph(matches, uuid, currentElo) {
 }
 
 getcurrentseason();
+
+// Settings menu behavior: toggle, close on outside click, keyboard support
+(() => {
+    const settingsButton = document.getElementById('settingsButton');
+    const settingsMenu = document.getElementById('settingsMenu');
+
+    if (!settingsButton || !settingsMenu) return;
+
+    function openMenu() {
+        settingsMenu.classList.remove('hidden');
+        settingsButton.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+        settingsMenu.classList.add('hidden');
+        settingsButton.setAttribute('aria-expanded', 'false');
+    }
+
+    settingsButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const expanded = settingsButton.getAttribute('aria-expanded') === 'true';
+        if (expanded) closeMenu(); else openMenu();
+    });
+
+    // close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!settingsMenu.contains(e.target) && e.target !== settingsButton) {
+            closeMenu();
+        }
+    });
+
+    // keyboard support: Esc to close, Enter/Space on button to toggle
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMenu();
+        }
+    });
+
+    settingsMenu.addEventListener('click', (e) => {
+        // keep menu open when interacting with inputs, but stop propagation so document click doesn't close immediately
+        e.stopPropagation();
+    });
+})();

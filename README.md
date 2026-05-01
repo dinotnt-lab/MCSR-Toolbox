@@ -1,1 +1,12 @@
 # MCSR-Toolbox
+
+- [X] Player stats
+- [ ] Compare player to player
+- [ ] Compare player to average (world or rank)
+- [ ] Splits stats (whole run and ov/bas)
+- [ ] Queue games?
+- [ ] Info (setup, basic ideas, tips, tech)
+- [ ] Current live players
+- [ ] Discord links 
+- [ ] Skill checklist
+- [ ] Phase, playoffs, mss info

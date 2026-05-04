@@ -12,9 +12,9 @@
 - [ ] Skill checklist
 - [ ] Phase, playoffs, mss info
 
-## skill checklist
-
 # skill checklist
+
+## overworld
 
 - know craft
 - know chest spawns
@@ -23,6 +23,8 @@
 - know lava pool portal
 - know l shape magma
 - know 2x1 magma
+
+## nether pt 1
 
 - know e-ray
 - know bastion identity
@@ -43,6 +45,8 @@
   - right triple to right gap
   - other triple to gaps 
 
+## nether pt 2
+
 - know pieray
 - know glowdar
 - know good/bad fort
@@ -51,17 +55,23 @@
   - efficiently (corners)
   - fast
 
+## blind
+
 - know ninbot
 - know 2 eye calc
 - know boat eye
 - know godsens
 - know 2nd portal y level
 
+## stronghold
+
 - know premetive
 - know hiddens
 - know silverfish
   - sound
   - damage one = spawn more
+
+## end
 
 - know one cycle
 - know halfbow
@@ -72,6 +82,8 @@
   - side setups
   - y97+
 - know pearl clip
+
+## misc
 
 - know boat clutch
 - know death resets

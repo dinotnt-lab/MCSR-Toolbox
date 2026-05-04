@@ -15,8 +15,11 @@
 # skill checklist
 
 know craft
+
 know chest spawns
+
 know mapless (bt)
+
 know what to enter with
 know lava pool portal
 know l shape magma

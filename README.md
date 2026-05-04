@@ -8,9 +8,32 @@
 - [ ] Queue games?
 - [ ] Info (setup, basic ideas, tips, tech)
 - [ ] Current live players
-- [ ] Discord links 
-- [ ] Skill checklist
-- [ ] Phase, playoffs, mss info
+- [X] Discord links 
+- [X] Skill checklist
+- [X] Phase, playoffs, mss info
+
+# phase, playoffs, mss
+ - 4 phases per season (month long)
+ - gain points based on lb place
+ - ##end of phase 2
+ - mid season showdown
+   - top 100 play
+   - for extra phase points
+ - ##end of season
+ - top 12 in points auto qualify for playoffs
+ - top 100 play in last chance qualifier (lcq)
+   - top 4 of lcq get into playoffs
+ - 1v1 from round of 16 to grand finals
+ - best of 5 but grand finals is 7
+
+- current phase points lb (top 10 or something)
+
+# discord
+ - https://discord.gg/mcsrranked
+ - https://discord.com/invite/jmdFn3C mcsr general
+ - https://discord.gg/sczfsdE39W mcsr Mac
+ - https://discord.gg/CVxuagAXMt mcsr linux
+ - mcrl
 
 # skill checklist
 

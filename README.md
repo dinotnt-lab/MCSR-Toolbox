@@ -12,7 +12,7 @@
 - [ ] Skill checklist
 - [ ] Phase, playoffs, mss info
 
-# skill checklist
+## skill checklist
 
 # skill checklist
 

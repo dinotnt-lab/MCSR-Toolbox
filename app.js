@@ -456,30 +456,39 @@ getcurrentseason();
 function buildchecklist() {
     const items = {
         ov: [
-            " craft"," chest spawns"," mapless (bt)",
-            " what to enter with"," lava pool portal",
-            " l shape magma"," 2x1 magma"
-        ],
+"craft",
+"chest spawns",
+"mapless (bt)", 
+"what to enter with",
+"lava pool portal",
+"l shape magma portal",
+"2x1 magma portal"],
+
         nether1: [
-            " e-ray"," bastion identity"," treasure",
-            { label: " housing", children: ["topdown","manhunt"] },
-            { label: " bridge", children: ["double triple","left triple","right triple","double single"] },
-            { label: " stables", children: [
-                "gap identify","gap route","middle triple to gap",
-                "left triple to left gap","right triple to right gap","other triple to gaps"
-            ]}
-        ],
+"e-ray",
+"bastion identity",
+"treasure",
+{ label: " housing", children: ["topdown","manhunt"]},
+{ label: " bridge", children: ["double triple","left triple","right triple","double single"]},
+{ label: " stables", children: ["gap identify","gap route","middle triple to gap", "left triple to left gap","right triple to right gap","other triple to gaps"]}
+],
+
         nether2: [
-            " pieray"," glowdar"," good/bad fort"," blaze bed/tnt",
-            { label: " how to build portal", children: ["efficiently (corners)","fast"] }
-        ],
+" pieray",
+" glowdar",
+" good/bad fort",
+" blaze bed/tnt",
+{ label: " how to build portal", children: ["efficiently (corners)","fast"] }
+],
+
         blind: [
-            " ninbot"," 2 eye calc"," boat eye"," godsens"," 2nd portal y level"
-        ],
-        stronghold: [
-            " premetive"," hiddens",
-            { label: " silverfish", children: ["sound","damage one = spawn more"] }
-        ],
+" ninbot",
+" 2 eye calc",
+" boat eye",
+" godsens",
+" 2nd portal y level"
+],
+        stronghold: ["premetive","hiddens","silverfish sound"],
         end: [
             " one cycle"," halfbow"," fullbow",
             { label: " zero cycle", children: ["small boy - y88","y88 - y97","side setups","y97+"] },

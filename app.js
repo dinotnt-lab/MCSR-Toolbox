@@ -453,6 +453,7 @@ getcurrentseason();
         e.stopPropagation();
     });
 })();
+
 function saveChecklistState() {
     const state = {};
     document.querySelectorAll('#checklistContainer input[type="checkbox"]').forEach(cb => {
@@ -470,4 +471,24 @@ function loadChecklistState() {
     });
 }
 
+function initChecklistTabs() {
+    const tabs = document.querySelectorAll(".checklist-tab");
+    const buttons = document.querySelectorAll(".skilltabs button");
+
+    function showTab(name) {
+        tabs.forEach(tab => {
+            tab.style.display = tab.dataset.tab === name ? "block" : "none";
+        });
+    }
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            showTab(btn.dataset.tab);
+        });
+    });
+
+    showTab("ov");
+}
+
 loadChecklistState();
+initChecklistTabs();

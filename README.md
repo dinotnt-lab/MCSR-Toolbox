@@ -27,10 +27,3 @@
  - best of 5 but grand finals is 7
 
 - current phase points lb (top 10 or something)
-
-# discord
- - https://discord.gg/mcsrranked
- - https://discord.com/invite/jmdFn3C mcsr general
- - https://discord.gg/sczfsdE39W mcsr Mac
- - https://discord.gg/CVxuagAXMt mcsr linux
- - mcrl

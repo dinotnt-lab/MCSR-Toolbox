@@ -22,7 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 20px auto;
-    max-width: 1500px;
+    max-width: 1700px;
     gap: 20px;
 }
 
@@ -117,17 +117,6 @@ body {
     background-color: rgb(10, 10, 35);
 }
 
-#toggleTimeFormat {
-    padding: 10px;
-    border: 2px solid aqua;
-    border-radius: 6px;
-    font-size: 15px;
-    outline: none;
-    background-color: rgb(7, 1, 36);
-    color: white;
-    margin-bottom: 10px;
-}
-
 /* Settings button + menu */
 #settings-container {
     position: absolute;
@@ -189,10 +178,13 @@ body {
     cursor: pointer;
 }
 
+li {
+    list-style: none;
+}
+
 .checklist {
-  list-style: none;
   margin: 0;
-  padding: 7px;
+  padding-left: 15px;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
@@ -216,7 +208,49 @@ body {
 }
 
 #checklistContainer {
-    height: 300px;
-    overflow-y: scroll;  /* always reserve scrollbar space */
+    height: 310px;
     width: 210px
+}
+
+button {
+    padding: 6px;
+    border: 2px solid aqua;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    background-color: rgb(7, 1, 36);
+    color: white;
+}
+
+.dcbuttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infop {
+    padding-top: 10px;
+    margin: 0;
+}
+
+.infop p {
+    padding: 4px;
+    margin: 0;
+}
+
+.info {
+    width: 300px;
+    height: 430px;
+}
+
+a {
+    color: aqua;
 }

@@ -47,7 +47,7 @@
         </div>
         <div id="toolgrid">
             <div class="tool" style="width: 170px;">
-                <div class="tooltitle">
+                <div class="tooltitle center">
                     <h2>Player info</h2>
                 </div>
                 <div id="playerStats">
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="tool">
-                <div class="tooltitle">
+                <div class="tooltitle center">
                     <h2>Match history</h2>
                 </div>
                 <div id="matchHistory">
@@ -87,143 +87,206 @@
                     <canvas id="eloCanvas" width="400" height="300"></canvas>
                 </div>
             </div>
-<div class="tool skillcheck">
-    <div class="tooltitle">
-        <h2>Skills Checklist</h2>
-    </div>
+            <div class="tool skillcheck">
+                <div class="tooltitle center">
+                    <h2>Skills Checklist</h2>
+                </div>
+                <div class="wrapper">
+                    <progress id="skillcheckbar" value="0" max="100"></progress>
+                    <div class="skilltabs">
+                        <button data-tab="ov">ov</button>
+                        <button data-tab="nether1">nether 1</button>
+                        <button data-tab="nether2">nether 2</button>
+                    </div>
+                    <div class="skilltabs">
+                        <button data-tab="blind">blind</button>
+                        <button data-tab="stronghold">sh</button>
+                        <button data-tab="end">end</button>
+                        <button data-tab="misc">misc</button>
+                    </div>
+                </div>
 
-    <div class="wrapper">
-        <div class="skilltabs">
-            <button data-tab="ov">ov</button>
-            <button data-tab="nether1">nether 1</button>
-            <button data-tab="nether2">nether 2</button>
-        </div>
-        <div class="skilltabs">
-            <button data-tab="blind">blind</button>
-            <button data-tab="stronghold">sh</button>
-            <button data-tab="end">end</button>
-            <button data-tab="misc">misc</button>
-        </div>
-    </div>
+                <div class="spacer"></div>
 
-    <div class="spacer"></div>
+                <div id="checklistContainer">
 
-    <div id="checklistContainer">
+                    <!-- OV -->
+                    <div class="checklist-tab" data-tab="ov">
+                        <ul class="checklist">
+                            <li><label><input type="checkbox" id="ov-0">craft</label></li>
+                            <li><label><input type="checkbox" id="ov-1">chest spawns</label></li>
+                            <li><label><input type="checkbox" id="ov-2">mapless (bt)</label></li>
+                            <li><label><input type="checkbox" id="ov-3">what to enter with</label></li>
+                            <li><label><input type="checkbox" id="ov-4">lava pool portal</label></li>
+                            <li><label><input type="checkbox" id="ov-5">l shape magma portal</label></li>
+                            <li><label><input type="checkbox" id="ov-6">2x1 magma portal</label></li>
+                        </ul>
+                    </div>
 
-        <div class="checklist-tab" data-tab="ov">
-            <ul class="checklist">
-                <li><label><input type="checkbox" id="ov-0"> craft</label></li>
-                <li><label><input type="checkbox" id="ov-1"> chest spawns</label></li>
-                <li><label><input type="checkbox" id="ov-2"> mapless (bt)</label></li>
-                <li><label><input type="checkbox" id="ov-3"> what to enter with</label></li>
-                <li><label><input type="checkbox" id="ov-4"> lava pool portal</label></li>
-                <li><label><input type="checkbox" id="ov-5"> l shape magma portal</label></li>
-                <li><label><input type="checkbox" id="ov-6"> 2x1 magma portal</label></li>
-            </ul>
-        </div>
+                    <!-- NETHER 1 -->
+                    <div class="checklist-tab" data-tab="nether1" style="display: none;">
+                        <ul class="checklist">
+                            <li><label><input type="checkbox" id="nether1-0">e-ray</label></li>
+                            <li><label><input type="checkbox" id="nether1-1">bastion identity</label></li>
+                            <li><label><input type="checkbox" id="nether1-2">treasure</label></li>
 
-        <div class="checklist-tab" data-tab="nether1">
-            <ul class="checklist">
-                <li><label><input type="checkbox" id="nether1-0"> e-ray</label></li>
-                <li><label><input type="checkbox" id="nether1-1"> bastion identity</label></li>
-                <li><label><input type="checkbox" id="nether1-2"> treasure</label></li>
-                <li>
-                    <label><input type="checkbox" id="nether1-3"> housing</label>
-                    <ul>
-                        <li><label><input type="checkbox" id="nether1-3-0"> topdown</label></li>
-                        <li><label><input type="checkbox" id="nether1-3-1"> manhunt</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <label><input type="checkbox" id="nether1-4"> bridge</label>
-                    <ul>
-                        <li><label><input type="checkbox" id="nether1-4-0"> double triple</label></li>
-                        <li><label><input type="checkbox" id="nether1-4-1"> left triple</label></li>
-                        <li><label><input type="checkbox" id="nether1-4-2"> right triple</label></li>
-                        <li><label><input type="checkbox" id="nether1-4-3"> double single</label></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+                            <li>
+                                <label><input type="checkbox" id="nether1-3">housing</label>
+                                <ul class="checklist">
+                                    <li><label><input type="checkbox" id="nether1-3-0">topdown</label></li>
+                                    <li><label><input type="checkbox" id="nether1-3-1">manhunt</label></li>
+                                </ul>
+                            </li>
 
-        <div class="checklist-tab" data-tab="nether2">
-            <ul class="checklist">
-                <li><label><input type="checkbox" id="nether2-0"> pieray</label></li>
-                <li><label><input type="checkbox" id="nether2-1"> glowdar</label></li>
-                <li><label><input type="checkbox" id="nether2-2"> good/bad fort</label></li>
-                <li><label><input type="checkbox" id="nether2-3"> blaze bed/tnt</label></li>
-                <li>
-                    <label><input type="checkbox" id="nether2-4"> how to build portal</label>
-                    <ul>
-                        <li><label><input type="checkbox" id="nether2-4-0"> efficiently (corners)</label></li>
-                        <li><label><input type="checkbox" id="nether2-4-1"> fast</label></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+                            <li>
+                                <label><input type="checkbox" id="nether1-4">bridge</label>
+                                <ul class="checklist">
+                                    <li><label><input type="checkbox" id="nether1-4-0">double triple</label></li>
+                                    <li><label><input type="checkbox" id="nether1-4-1">single triple</label></li>
+                                    <li><label><input type="checkbox" id="nether1-4-3">double single</label></li>
+                                </ul>
+                            </li>
 
-        <div class="checklist-tab" data-tab="blind">
-            <ul class="checklist">
-                <li><label><input type="checkbox" id="blind-0"> ninbot</label></li>
-                <li><label><input type="checkbox" id="blind-1"> 2 eye calc</label></li>
-                <li><label><input type="checkbox" id="blind-2"> boat eye</label></li>
-                <li><label><input type="checkbox" id="blind-3"> godsens</label></li>
-                <li><label><input type="checkbox" id="blind-4"> 2nd portal y level</label></li>
-            </ul>
-        </div>
+                            <li>
+                                <label><input type="checkbox" id="nether1-5">stables</label>
+                                <ul class="checklist">
+                                    <li><label><input type="checkbox" id="nether1-5-0">gap identify</label></li>
+                                    <li><label><input type="checkbox" id="nether1-5-1">gap route</label></li>
+                                    <li><label><input type="checkbox" id="nether1-5-2">same rampart ttg</label></li>
+                                    <li><label><input type="checkbox" id="nether1-5-5">other ttg</label></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
 
-        <div class="checklist-tab" data-tab="stronghold">
-            <ul class="checklist">
-                <li><label><input type="checkbox" id="stronghold-0"> premetive</label></li>
-                <li><label><input type="checkbox" id="stronghold-1"> hiddens</label></li>
-                <li><label><input type="checkbox" id="stronghold-2"> silverfish sound</label></li>
-            </ul>
-        </div>
+                    <!-- NETHER 2 -->
+                    <div class="checklist-tab" data-tab="nether2" style="display: none;">
+                        <ul class="checklist">
+                            <li><label><input type="checkbox" id="nether2-0">pieray</label></li>
+                            <li><label><input type="checkbox" id="nether2-1">glowdar</label></li>
+                            <li><label><input type="checkbox" id="nether2-2">good/bad fort</label></li>
+                            <li><label><input type="checkbox" id="nether2-3">blaze bed/tnt</label></li>
+                            <li>
+                                <label><input type="checkbox" id="nether2-4">how to build portal</label>
+                                <ul class="checklist">
+                                    <li><label><input type="checkbox" id="nether2-4-0">efficiently (corners)</label></li>
+                                    <li><label><input type="checkbox" id="nether2-4-1">fast</label></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
 
-        <div class="checklist-tab" data-tab="end">
-            <ul class="checklist">
-                <li><label><input type="checkbox" id="end-0"> one cycle</label></li>
-                <li><label><input type="checkbox" id="end-1"> halfbow</label></li>
-                <li><label><input type="checkbox" id="end-2"> fullbow</label></li>
-                <li>
-                    <label><input type="checkbox" id="end-3"> zero cycle</label>
-                    <ul>
-                        <li><label><input type="checkbox" id="end-3-0"> small boy - y88</label></li>
-                        <li><label><input type="checkbox" id="end-3-1"> y88 - y97</label></li>
-                        <li><label><input type="checkbox" id="end-3-2"> side setups</label></li>
-                        <li><label><input type="checkbox" id="end-3-3"> y97+</label></li>
-                    </ul>
-                </li>
-                <li><label><input type="checkbox" id="end-4"> pearl clip</label></li>
-            </ul>
-        </div>
+                    <!-- BLIND -->
+                    <div class="checklist-tab" data-tab="blind" style="display: none;">
+                        <ul class="checklist">
+                            <li><label><input type="checkbox" id="blind-0">ninbot</label></li>
+                            <li><label><input type="checkbox" id="blind-1">2 eye calc</label></li>
+                            <li><label><input type="checkbox" id="blind-2">boat eye</label></li>
+                            <li><label><input type="checkbox" id="blind-3">godsens</label></li>
+                            <li><label><input type="checkbox" id="blind-4">2nd portal y level</label></li>
+                        </ul>
+                    </div>
 
-        <div class="checklist-tab" data-tab="misc">
-            <ul class="checklist">
-                <li><label><input type="checkbox" id="misc-0"> boat clutch</label></li>
-                <li>
-                    <label><input type="checkbox" id="misc-1"> death resets</label>
-                    <ul>
-                        <li><label><input type="checkbox" id="misc-1-0"> respawn anchor</label></li>
-                        <li><label><input type="checkbox" id="misc-1-1"> bed (flat ground)</label></li>
-                        <li><label><input type="checkbox" id="misc-1-2"> bed (portal room)</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <label><input type="checkbox" id="misc-2"> hotkeys/resizing</label>
-                    <ul>
-                        <li><label><input type="checkbox" id="misc-2-0"> hotbar</label></li>
-                        <li><label><input type="checkbox" id="misc-2-1"> F3</label></li>
-                        <li><label><input type="checkbox" id="misc-2-2"> thin</label></li>
-                        <li><label><input type="checkbox" id="misc-2-3"> wide</label></li>
-                        <li><label><input type="checkbox" id="misc-2-4"> eyezoom</label></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+                    <!-- STRONGHOLD -->
+                    <div class="checklist-tab" data-tab="stronghold" style="display: none;">
+                        <ul class="checklist">
+                            <li><label><input type="checkbox" id="stronghold-0">premetive</label></li>
+                            <li><label><input type="checkbox" id="stronghold-1">hiddens</label></li>
+                            <li><label><input type="checkbox" id="stronghold-2">silverfish sound</label></li>
+                        </ul>
+                    </div>
 
-    </div>
-</div>
+                    <!-- END -->
+                    <div class="checklist-tab" data-tab="end" style="display: none;">
+                        <ul class="checklist">
+                            <li><label><input type="checkbox" id="end-0">one cycle</label></li>
+                            <li><label><input type="checkbox" id="end-1">halfbow</label></li>
+                            <li><label><input type="checkbox" id="end-2">fullbow</label></li>
+                            <li>
+                                <label><input type="checkbox" id="end-3">zero cycle</label>
+                                <ul class="checklist">
+                                    <li><label><input type="checkbox" id="end-3-0">small boyy88</label></li>
+                                    <li><label><input type="checkbox" id="end-3-1">y88y97</label></li>
+                                    <li><label><input type="checkbox" id="end-3-2">side setups</label></li>
+                                    <li><label><input type="checkbox" id="end-3-3">y97+</label></li>
+                                </ul>
+                            </li>
+                            <li><label><input type="checkbox" id="end-4">pearl clip</label></li>
+                        </ul>
+                    </div>
+
+                    <!-- MISC -->
+                    <div class="checklist-tab" data-tab="misc" style="display: none;">
+                        <ul class="checklist">
+                            <li><label><input type="checkbox" id="misc-0">boat clutch</label></li>
+                            <li>
+                                <label><input type="checkbox" id="misc-1">death resets</label>
+                                <ul class="checklist">
+                                    <li><label><input type="checkbox" id="misc-1-0">respawn anchor</label></li>
+                                    <li><label><input type="checkbox" id="misc-1-1">bed (flat ground)</label></li>
+                                    <li><label><input type="checkbox" id="misc-1-2">bed (portal room)</label></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label><input type="checkbox" id="misc-2">hotkeys/resizing</label>
+                                <ul class="checklist">
+                                    <li><label><input type="checkbox" id="misc-2-0">hotbar</label></li>
+                                    <li><label><input type="checkbox" id="misc-2-1">F3</label></li>
+                                    <li><label><input type="checkbox" id="misc-2-2">thin</label></li>
+                                    <li><label><input type="checkbox" id="misc-2-3">wide</label></li>
+                                    <li><label><input type="checkbox" id="misc-2-4">eyezoom</label></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class='tool'>
+                <div class="tooltitle center">
+                    <h2>Discords</h2>
+                </div>
+                <div class="dcbuttons">
+                    <button onclick="window.open('https://discord.gg/mcsrranked', '_blank')">MCSR Ranked</button>
+                    <button onclick="window.open('https://discord.com/invite/jmdFn3C', '_blank')">MCSR Speedrunning</button>
+                    <button onclick="window.open('https://discord.gg/zzptZsec42', '_blank')">MCSR Ranked Leagues</button>
+                </div>
+            </div>
+            <div class="tool info">
+                <div class="tooltitle center">
+                    <h2>Info</h2>
+                </div>
+                <div>
+                    <button id='playoffsbutton' onclick="showinfo(1)">Playoffs + phase points</button>
+                    <button id='setupbutton' onclick="showinfo(2)">Setup Ranked</button>
+                </div>
+                <div>
+                    <div class='infop' id="playoffsinfo">
+                        <p>4 phases per season (month long) </p>
+                        <p>gain points based on lb place </p>
+                        <p>--- end of phase 2 ---</p>
+                        <p>mid season showdown </p>
+                        <p>top 100 play </p>
+                        <p>for extra phase points </p>
+                        <p>--- end of season ---</p>
+                        <p>top 12 in points auto qualify for playoffs </p>
+                        <p>top 100 play in last chance qualifier (lcq) </p>
+                        <p>top 4 of lcq get into playoffs </p>
+                        <p>1v1 from round of 16 to grand finals </p>
+                        <p>best of 5 but grand finals is 7 </p>
+                    </div>
+                    <div class='infop' id="setupinfo" style="display: none;">
+                        <p>1. Download <a href="https://prismlauncher.org" target="_blank">Prisim</a></p>
+                        <p>2. Import <a href="https://redlime.github.io/MCSRMods/modpacks/v4/MCSRRanked-Windows-1.16.1.mrpack" target="_blank">this</a> as an instance (or find more/not windows <a href="https://mcsrranked.com/download" target="_blank">here</a>)</p>
+                        <p>3. Allocate more ram in the instance settings (edit > settings > memory)</p>
+                        <p>4. Launch and play!</p>
+                        <p> --- Extras --- </p>
+                        <p><a href="https://github.com/Ninjabrain1/Ninjabrain-Bot" target="_blank">Ninjabrain bot calculator</a> to find strongholds (<a href="https://www.youtube.com/watch?v=XmikooWmIAM" target="_blank">tutorial</a>)</p>
+                        <p><a href="https://github.com/jojoe77777/Toolscreen" target="_blank">Toolscreen</a> to for resizing, hotkeys and mirrors (<a href="https://www.youtube.com/watch?v=LG13ljK9RPs" target="_blank">tutorial</a>)</p>
+                        <p><a href="https://obsproject.com" target="_blank">OBS</a> for recording and streaming</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

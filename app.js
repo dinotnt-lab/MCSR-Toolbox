@@ -409,8 +409,6 @@ function drawEloGraph(matches, uuid, currentElo) {
     }
 }
 
-getcurrentseason();
-
 // Settings menu behavior: toggle, close on outside click, keyboard support
 (() => {
     const settingsButton = document.getElementById('settingsButton');
@@ -454,12 +452,27 @@ getcurrentseason();
     });
 })();
 
+function updateprogressbar() {
+    const bar = document.getElementById('skillcheckbar')
+    const stor = localStorage || '{}' 
+    const len = Object.keys(JSON.parse(stor['checklistState'])).length
+    var completed = 0
+    for (const item in JSON.parse(stor['checklistState'])) {
+        if (JSON.parse(stor['checklistState'])[item] == true) {
+            completed += 1
+        }
+    }
+    bar.value = completed
+    bar.max = len
+}
+
 function saveChecklistState() {
     const state = {};
     document.querySelectorAll('#checklistContainer input[type="checkbox"]').forEach(cb => {
         state[cb.id] = cb.checked;
     });
     localStorage.setItem('checklistState', JSON.stringify(state));
+    updateprogressbar();
 }
 
 function loadChecklistState() {
@@ -479,6 +492,16 @@ function initChecklistTabs() {
         tabs.forEach(tab => {
             tab.style.display = tab.dataset.tab === name ? "block" : "none";
         });
+
+        buttons.forEach(btn => {
+            if (btn.dataset.tab === name) {
+                btn.style.color = 'black';
+                btn.style.backgroundColor = 'aqua';
+            } else {
+                btn.style.color = 'white';
+                btn.style.backgroundColor = '';
+            }
+        });
     }
 
     buttons.forEach(btn => {
@@ -490,5 +513,81 @@ function initChecklistTabs() {
     showTab("ov");
 }
 
+document.addEventListener('change', (e) => {
+    const cb = e.target;
+    if (!cb || cb.type !== 'checkbox') return;
+
+    const li = cb.closest('li');
+    if (li) {
+        li.querySelectorAll('ul input[type="checkbox"]').forEach(ch => {
+            ch.checked = cb.checked;
+            ch.indeterminate = false;
+        });
+    }
+
+    let parentLi = li ? li.parentElement.closest('li') : null;
+    while (parentLi) {
+        const parentCb = parentLi.querySelector('input[type="checkbox"]');
+        if (!parentCb) break;
+
+        const childBoxes = parentLi.querySelectorAll(':scope > ul > li input[type="checkbox"]');
+        const checkedCount = Array.from(childBoxes).filter(ch => ch.checked).length;
+
+        if (checkedCount === 0) {
+            parentCb.checked = false;
+            parentCb.indeterminate = false;
+        } else if (checkedCount === childBoxes.length) {
+            parentCb.checked = true;
+            parentCb.indeterminate = false;
+        } else {
+            parentCb.checked = false;
+            parentCb.indeterminate = true;
+        }
+
+        parentLi = parentLi.parentElement.closest('li');
+    }
+    saveChecklistState();
+});
+
+let warned = false;
+
+function sizechecker() {
+    if (window.innerWidth < 1920 || window.innerHeight < 1080) {
+        if (!warned) {
+            warned = true;
+            alert('This page wasnt designed to be viewed on any display smaller than 1920x1080');
+        }
+    } else {
+        warned = false;
+    }
+}
+
+window.addEventListener('resize', sizechecker);
+
+function showinfo(x) {
+    const info = {
+        1: 'playoffs',
+        2: 'setup'
+    }
+    console.log(info[x])
+
+    for (const item in info) {
+        const y = info[item]
+        if (y === info[x]) {
+            document.getElementById(info[item]+'info').style.display = ''
+            document.getElementById(info[item]+'button').style.color = 'black'
+            document.getElementById(info[item]+'button').style.backgroundColor = 'aqua'
+        } else {
+        document.getElementById(info[item]+'info').style.display = 'none'
+        document.getElementById(info[item]+'button').style.color = 'white'
+        document.getElementById(info[item]+'button').style.backgroundColor = ''
+        }
+    }
+}
+
+showinfo(1)
+//sizechecker();
+getcurrentseason();
 loadChecklistState();
 initChecklistTabs();
+updateprogressbar();

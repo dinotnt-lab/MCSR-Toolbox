@@ -88,26 +88,43 @@
                 </div>
             </div>
             <div class="tool skillcheck">
-                <div class="tooltitle">
-                    <h2>Skills Checklist</h2>
-                </div>
+    <div class="tooltitle">
+        <h2>Skills Checklist</h2>
+    </div>
 
-                <div class="wrapper">
-                    <div class="skilltabs">
-                        <button data-tab="ov">ov</button>
-                        <button data-tab="nether1">nether 1</button>
-                        <button data-tab="nether2">nether 2</button>
-                    </div>
-                    <div class="skilltabs">
-                        <button data-tab="blind">blind</button>
-                        <button data-tab="stronghold">sh</button>
-                        <button data-tab="end">end</button>
-                        <button data-tab="misc">misc</button>
-                    </div>
-                </div>
-                <div class="spacer"></div>
-                <div id="checklistContainer"></div>
-            </div>
+    <div id="checklistContainer">
+        <ul class="checklist">
+            <li><label><input type="checkbox" id="ov-0"> craft</label></li>
+            <li><label><input type="checkbox" id="ov-1"> chest spawns</label></li>
+            <li><label><input type="checkbox" id="ov-2"> mapless (bt)</label></li>
+            <li><label><input type="checkbox" id="ov-3"> what to enter with</label></li>
+            <li><label><input type="checkbox" id="ov-4"> lava pool portal</label></li>
+            <li><label><input type="checkbox" id="ov-5"> l shape magma portal</label></li>
+            <li><label><input type="checkbox" id="ov-6"> 2x1 magma portal</label></li>
+
+            <li><label><input type="checkbox" id="nether1-0"> e-ray</label></li>
+            <li><label><input type="checkbox" id="nether1-1"> bastion identity</label></li>
+            <li><label><input type="checkbox" id="nether1-2"> treasure</label></li>
+            <li>
+                <label><input type="checkbox" id="nether1-3"> housing</label>
+                <ul>
+                    <li><label><input type="checkbox" id="nether1-3-0"> topdown</label></li>
+                    <li><label><input type="checkbox" id="nether1-3-1"> manhunt</label></li>
+                </ul>
+            </li>
+
+            <li><label><input type="checkbox" id="blind-0"> ninbot</label></li>
+            <li><label><input type="checkbox" id="blind-1"> 2 eye calc</label></li>
+            <li><label><input type="checkbox" id="blind-2"> boat eye</label></li>
+            <li><label><input type="checkbox" id="blind-3"> godsens</label></li>
+            <li><label><input type="checkbox" id="blind-4"> 2nd portal y level</label></li>
+
+            <li><label><input type="checkbox" id="end-0"> one cycle</label></li>
+            <li><label><input type="checkbox" id="end-1"> halfbow</label></li>
+            <li><label><input type="checkbox" id="end-2"> fullbow</label></li>
+        </ul>
+    </div>
+</div>
         </div>
     </body>
 </html>

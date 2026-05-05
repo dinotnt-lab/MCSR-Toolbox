@@ -453,104 +453,6 @@ getcurrentseason();
         e.stopPropagation();
     });
 })();
-function buildchecklist() {
-    const items = {
-        ov: [
-"craft",
-"chest spawns",
-"mapless (bt)", 
-"what to enter with",
-"lava pool portal",
-"l shape magma portal",
-"2x1 magma portal"],
-
-        nether1: [
-"e-ray",
-"bastion identity",
-"treasure",
-{ label: " housing", children: ["topdown","manhunt"]},
-{ label: " bridge", children: ["double triple","left triple","right triple","double single"]},
-{ label: " stables", children: ["gap identify","gap route","middle triple to gap", "left triple to left gap","right triple to right gap","other triple to gaps"]}
-],
-
-        nether2: [
-" pieray",
-" glowdar",
-" good/bad fort",
-" blaze bed/tnt",
-{ label: " how to build portal", children: ["efficiently (corners)","fast"] }
-],
-
-        blind: [
-" ninbot",
-" 2 eye calc",
-" boat eye",
-" godsens",
-" 2nd portal y level"
-],
-        stronghold: ["premetive","hiddens","silverfish sound"],
-        end: [
-            " one cycle"," halfbow"," fullbow",
-            { label: " zero cycle", children: ["small boy - y88","y88 - y97","side setups","y97+"] },
-            " pearl clip"
-        ],
-        misc: [
-            " boat clutch",
-            { label: " death resets", children: ["respawn anchor","bed (flat ground)","bed (portal room)"] },
-            { label: "have hotkeys/resizing", children: ["hotbar","F3","thin","wide","eyezoom"] }
-        ]
-    };
-
-    const container = document.getElementById("checklistContainer");
-
-    function createItem(text, id, saved) {
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <label>
-                <input type="checkbox" id="${id}" ${saved[id] ? "checked" : ""}>
-                <span>${text}</span>
-            </label>
-        `;
-        li.querySelector("input").addEventListener("change", saveChecklistState);
-        return li;
-    }
-
-    const saved = loadChecklistState();
-
-    function buildList(arr, prefix) {
-        const ul = document.createElement("ul");
-        ul.className = 'checklist'
-
-        arr.forEach((item, i) => {
-            const id = `${prefix}-${i}`;
-
-            if (typeof item === "string") {
-                ul.appendChild(createItem(item, id, saved));
-            } else {
-                const li = document.createElement("li");
-                li.appendChild(createItem(item.label, id, saved));
-                li.appendChild(buildList(item.children, id));
-                ul.appendChild(li);
-            }
-        });
-
-        return ul;
-    }
-
-    function renderTab(tab) {
-        container.innerHTML = "";
-        container.appendChild(buildList(items[tab], tab));
-    }
-
-    document.querySelectorAll(".skilltabs button").forEach(btn => {
-        btn.addEventListener("click", () => {
-            renderTab(btn.dataset.tab);
-        });
-    });
-
-    renderTab("ov");
-}
-
 function saveChecklistState() {
     const state = {};
     document.querySelectorAll('#checklistContainer input[type="checkbox"]').forEach(cb => {
@@ -560,7 +462,12 @@ function saveChecklistState() {
 }
 
 function loadChecklistState() {
-    return JSON.parse(localStorage.getItem('checklistState') || "{}");
+    const state = JSON.parse(localStorage.getItem('checklistState') || "{}");
+
+    document.querySelectorAll('#checklistContainer input[type="checkbox"]').forEach(cb => {
+        cb.checked = !!state[cb.id];
+        cb.addEventListener("change", saveChecklistState);
+    });
 }
 
-buildchecklist();
+loadChecklistState();
